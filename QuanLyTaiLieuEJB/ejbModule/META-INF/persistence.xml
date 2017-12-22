@@ -9,8 +9,6 @@
 		<class>EntityBeans.Tailieu</class>
 		<class>EntityBeans.User</class>
 		<class>EntityBeans.UserPK</class>
-		<properties>
-			<property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml"/>
-		</properties>
+		
 	</persistence-unit>
 </persistence>

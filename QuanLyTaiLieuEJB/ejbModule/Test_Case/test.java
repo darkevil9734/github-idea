@@ -9,11 +9,12 @@ import org.omg.IOP.TAG_INTERNET_IOP;
 
 import EntityBeans.Tailieu;
 import Function.DateTimeCurrent;
+import SessionBeans.TaiLieuDAO;
 import SessionBeans.TaiLieuDAOLocal;
 
 public class test {
 	@EJB
-	private static TaiLieuDAOLocal tl;
+	private static TaiLieuDAO tl;
 	
 	public static void main(String [] args) {
 		DateTimeCurrent dtc = new DateTimeCurrent();

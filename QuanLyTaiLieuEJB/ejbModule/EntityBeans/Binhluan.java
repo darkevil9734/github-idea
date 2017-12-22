@@ -3,11 +3,6 @@ package EntityBeans;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
-/**
- * The persistent class for the binhluan database table.
- * 
- */
 @Entity
 @NamedQuery(name="Binhluan.findAll", query="SELECT b FROM Binhluan b")
 public class Binhluan implements Serializable {

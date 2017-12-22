@@ -12,8 +12,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import EntityBeans.Binhluan;
+import EntityBeans.Loai;
 import EntityBeans.Tailieu;
 import EntityBeans.User;
+import EntityBeans.UserPK;
+import SessionBeans.BinhLuanDAOLocal;
 import SessionBeans.TaiLieuDAOLocal;
 import SessionBeans.UserDAOLocal;
 
@@ -33,37 +37,40 @@ public class test extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     @EJB
-    private TaiLieuDAOLocal tl;
+    private BinhLuanDAOLocal blDAO;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String ten_tailieu = "1.pdf";
-		// get current day 
-		java.util.Date date = new java.util.Date();
-		long t = date.getTime();
+		String noidung = "abcdef";
+		int ma_tai_lieu = 1;
+		int id_user = 1;
+		int loai = 1;
 		
-		java.sql.Date sqlDate = new java.sql.Date(t);
-		SimpleDateFormat fmt_date = new SimpleDateFormat("dd-MM-yyyy");
-		String ngay = fmt_date.format(sqlDate);
-		java.sql.Time sqlTime = new java.sql.Time(t);
+		UserPK u = new UserPK();
+		u.setIdUser(id_user);
+		u.setIdLoai(loai);
 		
-		// eof
-		String ngay_upload = sqlDate + " " + sqlTime;
+		Loai l = new Loai();
+		l.setIdLoai(loai);
 		
-		List<Tailieu> dstl = tl.list_of_tailieu();
-		int rd = dstl.size()+1;
 		
-		Tailieu tl_upload = new Tailieu();
-		tl_upload.setIdTaiLieu(rd);
-		tl_upload.setTenTaiLieu(ten_tailieu);
-		//tl_upload.setNgayUpload(ngayUpload);
-		if(tl.upload(rd, ten_tailieu, ngay_upload)) {
+		User u1 = new User();
+		u1.getId().getIdUser();
+		u1.getLoai().getIdLoai();
+		
+		Tailieu tl = new Tailieu();
+		tl.setIdTaiLieu(ma_tai_lieu);
+		
+		Binhluan bl = new Binhluan();
+		bl.setNoiDung(noidung);
+		bl.setTailieu(tl);
+		
+	
+		if(blDAO.them_binh_luan(bl) == true) {
 			System.out.println("thanh cong");
 		}
 		else {
 			System.out.println("loi");
 		}
 		
-		
-		System.out.println("Size: " + rd);
 	}
 
 	/**

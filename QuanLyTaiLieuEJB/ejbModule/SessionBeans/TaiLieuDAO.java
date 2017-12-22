@@ -39,6 +39,16 @@ public class TaiLieuDAO implements TaiLieuDAOLocal {
 		return false;
 	}
 
+	
+	
+	@Override
+	public void Tailieu(int id) {
+		Tailieu tl = new Tailieu();
+		Query q = em.createNamedQuery("Tailieu.DocTheoId", Tailieu.class);
+		q.setParameter(1, id);
+		tl = (EntityBeans.Tailieu) q.getSingleResult();
+	}
+
 	public TaiLieuDAO() {
     
 	}

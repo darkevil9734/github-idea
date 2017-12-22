@@ -11,7 +11,11 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Tailieu.findAll", query="SELECT t FROM Tailieu t")
+@NamedQueries({
+	@NamedQuery(name="Tailieu.findAll", query="SELECT t FROM Tailieu t"),
+	@NamedQuery(name="Tailieu.DocTheoId", query="SELECT t FROM Tailieu t WHERE t.idTaiLieu=:id")
+})
+	
 public class Tailieu implements Serializable {
 	private static final long serialVersionUID = 1L;
 

@@ -11,5 +11,5 @@ import EntityBeans.Tailieu;
 public interface TaiLieuDAOLocal {
 	List<Tailieu> list_of_tailieu();
 	boolean upload(int ma_tai_lieu, String ten_tai_lieu, String ngay_upload);
-	
+	void Tailieu(int id);
 }
